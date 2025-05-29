@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Băm dữ liệu SHA-256 / SHA-512</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>🔐 So sánh mã băm SHA-256 và SHA-512 (Hỗ trợ file ảnh, văn bản)</h2>
+
+    <!-- Nhập dữ liệu 1 -->
+    <div class="section">
+      <h3>📝 Dữ liệu gốc</h3>
+      <input type="file" accept=".txt,.png,.jpg,.jpeg,.bmp" onchange="handleFileInput(event, 'input1')" />
+      <textarea id="input1" placeholder="Nhập dữ liệu 1..."></textarea>
+      <div class="char-count" id="count1">0 ký tự</div>
+    </div>
+
+    <!-- Nhập dữ liệu 2 -->
+    <div class="section">
+      <h3>✏️ Dữ liệu so sánh</h3>
+      <input type="file" accept=".txt,.png,.jpg,.jpeg,.bmp" onchange="handleFileInput(event, 'input2')" />
+      <textarea id="input2" placeholder="Nhập dữ liệu 2..."></textarea>
+      <div class="char-count" id="count2">0 ký tự</div>
+    </div>
+
+    <!-- Kết quả băm -->
+    <div class="section">
+      <h4>SHA-256 của dữ liệu 1:</h4>
+      <div class="output" id="hash256_1">---</div>
+
+      <h4>SHA-256 của dữ liệu 2:</h4>
+      <div class="output" id="hash256_2">---</div>
+
+      <h4>SHA-512 của dữ liệu 1:</h4>
+      <div class="output" id="hash512_1">---</div>
+
+      <h4>SHA-512 của dữ liệu 2:</h4>
+      <div class="output" id="hash512_2">---</div>
+    </div>
+
+    <div class="comparison" id="compareResult">Nhấn "Băm và So sánh" để xem kết quả.</div>
+
+    <button onclick="compareHash()">🔎 Băm và So sánh</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script src="hash.js"></script>
